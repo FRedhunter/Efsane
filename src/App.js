@@ -33,12 +33,22 @@ export default function App() {
 		4. Kodunuzu sadece aşağıya yazmalısınız. Başka bir yerde hiçbir şeyin değiştirilmesine veya eklenmesine gerek yok.  Bu görevleri doğru bir şekilde tamamlarsanız, karakterinizin adını yazdıktan ve "Devam" a tıkladıktan sonra bir kahramanın adını almalısınız
 */
 
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <TopSection submitted={submitted} />
 
       {/*-----Input'unuz burada olacak----------*/}
-
+      <input
+        className="name-input"
+        type="text"
+        maxLength={16}
+        placeholder="Karakterinizin Adını Girin"
+        required
+        disabled={submitted}
+        value={playerName}
+        onChange={(e) => setPlayerName(e.target.value)}
+      />
       {/*-----Input'unuz burada olacak----------*/}
 
       <BottomSection submitted={submitted} playerName={playerName} />
